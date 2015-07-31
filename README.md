@@ -4,7 +4,7 @@
 
 ### Use Intention-Revealing Names
 
-```
+```java
 	/* Bad */
 	int d; // elapsed time in days
 
@@ -15,7 +15,7 @@
 	int fileAgeInDays;
 ```
 
-```
+```java
 	/* Bad */
 	public List<int[]> getThem() {
 		List<int[]> list1 = new ArrayList<int[]>();
@@ -32,5 +32,5 @@
 			if (cell.isFlagged())
 				flaggedCells.add(cell);
 		return flaggedCells;
-		}
+	}
 ```
