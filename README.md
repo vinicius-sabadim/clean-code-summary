@@ -192,3 +192,13 @@ public class GuessStatisticsMessage {
 	}
 }
 ```
+
+### Don't Add Gratuitous Context
+* Não adicione mais contexto do que o necessário. Por exemplo, na aplicação "Gas Station Deluxe", todas as classes não precisam começar com GSD.
+* Nomes curtos são melhores do que longos, desde que seja claro.
+Os nomes `accountAddress` e `costumerAddress` são bons nomes para instâncias da classe `Address`. `Address` é um bom nome para uma classe.
+
+### Final Words
+> Não tenha medo de renomear sempre que for necessário.
+
+## Functions
