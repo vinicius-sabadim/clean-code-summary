@@ -49,7 +49,7 @@ public static void copyChars(char a1[], char a2[]) {
 ```
 Ficaria bem melhor se a1 fosse source e a2 fosse destination.
 
-* Produto, ProductInfo e ProductData não tem diferença significativa nenhuma.
+* ```Product```, ```ProductInfo``` e ```ProductData``` não tem diferença significativa nenhuma.
 
 ### Use Pronunceable Names
 ```java
@@ -89,17 +89,17 @@ sum += realTaskWeeks;
 ```
 
 ### Avoid Encodings
-Em vez de chamar uma interface de IShapeFactory e a implementação de ShapeFactory, prefira nomear a implementação. Assim, prefira os nomes ShapeFactory e ShapeFactoryImp.
+Em vez de chamar uma interface de ```IShapeFactory``` e a implementação de ```ShapeFactory```, prefira nomear a implementação. Assim, prefira os nomes ```ShapeFactory``` e ```ShapeFactoryImp```.
 
 ### Avoid Mental Mapping
 Evite usar nomes que precisam ser pensados como sendo outra coisa. Um caso típico é utilizar variáveis com somente 1 letra. Por exemplo, associar a variável u para armazenar a url sem o host.
 
 ### Class Names
-Utilize substantivos e frases substantivas. Use Customer, WikiPage, Account e AddressParser. Não use Manager, Processor, Data ou Info.
+Utilize substantivos e frases substantivas. Use ```Customer```, ```WikiPage```, ```Account``` e ```AddressParser```. Não use ```Manager```, ```Processor```, ```Data``` ou ```Info```.
 
 ### Method Names
-Utilize verbos e frases verbais. Use postPayment, deletePage ou save.
-Acesso, mutação e predicado deve ter o valor e os prefixos: get, set e is.
+Utilize verbos e frases verbais. Use ```postPayment```, ```deletePage``` ou ```save```.
+Acesso, mutação e predicado deve ter o valor e os prefixos: ```get```, ```set``` e ```is```.
 
 ```java
 string name = employee.getName();
@@ -109,7 +109,10 @@ if (paycheck.isPosted())...
 
 ### Don't Be Cute
 Não utilize termos engraçados ou com dependência cultural.
-Em vez de HolyHandGrenade use DeleteItems.
+Em vez de ```HolyHandGrenade``` use ```DeleteItems```.
 
 > Escreva o que significa.
 
+### Pick One Word per Concept
+Utilize a mesma palavra para descrever o mesmo conceito durante o código. Não use ```fetch```, ```retrieve``` e ```get``` com a mesma função em diferentes métodos.
+É confuso ter ```controller```, ```manager``` e ```driver``` no mesmo código.
