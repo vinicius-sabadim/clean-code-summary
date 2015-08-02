@@ -5,39 +5,39 @@
 ### Use Intention-Revealing Names
 
 ```java
-	/* Bom */
-	int d; // elapsed time in days
+/* Ruim */
+int d; // elapsed time in days
 
-	/* Ruim */
-	int elapsedTimeInDays;
-	int daysSinceCreation;
-	int daysSinceModification;
-	int fileAgeInDays;
+/* Bom */
+int elapsedTimeInDays;
+int daysSinceCreation;
+int daysSinceModification;
+int fileAgeInDays;
 ```
 
 ```java
-	/* Bom */
-	public List<int[]> getThem() {
-		List<int[]> list1 = new ArrayList<int[]>();
-		for (int[] x : theList)
-			if (x[0] == 4)
-				list1.add(x);
-		return list1;
-	}
+/* Ruim */
+public List<int[]> getThem() {
+	List<int[]> list1 = new ArrayList<int[]>();
+	for (int[] x : theList)
+		if (x[0] == 4)
+			list1.add(x);
+	return list1;
+}
 
-	/* Ruim */
-	public List<Cell> getFlaggedCells() {
-		List<Cell> flaggedCells = new ArrayList<Cell>();
-		for (Cell cell : gameBoard)
-			if (cell.isFlagged())
-				flaggedCells.add(cell);
-		return flaggedCells;
-	}
+/* Bom */
+public List<Cell> getFlaggedCells() {
+	List<Cell> flaggedCells = new ArrayList<Cell>();
+	for (Cell cell : gameBoard)
+		if (cell.isFlagged())
+			flaggedCells.add(cell);
+	return flaggedCells;
+}
 ```
 
 ### Avoid Disinformation
 * Evite usar variáveis com nomes referindo a uma estrutura de dados, por exemplo, accountList. Prefira accountGroup, bunchOfAccounts ou accounts.
-* Evite l minúsculo e O maiúsculo. Confunde com 1 e 0.
+* Evite L minúsculo e O maiúsculo. Confunde com 1 e 0.
 
 * Evite number-series
 ```java
@@ -50,3 +50,22 @@ public static void copyChars(char a1[], char a2[]) {
 Ficaria bem melhor se a1 fosse source e a2 fosse destination.
 
 * Produto, ProductInfo e ProductData não tem diferença significativa nenhuma.
+
+### Use Pronunceable Names
+```java
+/* Ruim */
+class DtaRcrd102 {
+	private Date genymdhms;
+	private Date modymdhms;
+	private final String pszqint = "102";
+/* ... */
+};
+
+/* Bom */
+class Customer {
+	private Date generationTimestamp;
+	private Date modificationTimestamp;;
+	private final String recordId = "102";
+	/* ... */
+};
+```
