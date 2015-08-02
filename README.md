@@ -95,4 +95,21 @@ Em vez de chamar uma interface de IShapeFactory e a implementação de ShapeFact
 Evite usar nomes que precisam ser pensados como sendo outra coisa. Um caso típico é utilizar variáveis com somente 1 letra. Por exemplo, associar a variável u para armazenar a url sem o host.
 
 ### Class Names
-Utilize substantivos em vez de verbo. Use Customer, WikiPage, Account e AddressParser. Não use Manager, Processor, Data ou Info.
+Utilize substantivos e frases substantivas. Use Customer, WikiPage, Account e AddressParser. Não use Manager, Processor, Data ou Info.
+
+### Method Names
+Utilize verbos e frases verbais. Use postPayment, deletePage ou save.
+Acesso, mutação e predicado deve ter o valor e os prefixos: get, set e is.
+
+```java
+string name = employee.getName();
+customer.setName("mike");
+if (paycheck.isPosted())...
+```
+
+### Don't Be Cute
+Não utilize termos engraçados ou com dependência cultural.
+Em vez de HolyHandGrenade use DeleteItems.
+
+> Escreva o que significa.
+
