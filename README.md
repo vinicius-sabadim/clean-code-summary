@@ -116,3 +116,6 @@ Em vez de ```HolyHandGrenade``` use ```DeleteItems```.
 ### Pick One Word per Concept
 Utilize a mesma palavra para descrever o mesmo conceito durante o código. Não use ```fetch```, ```retrieve``` e ```get``` com a mesma função em diferentes métodos.
 É confuso ter ```controller```, ```manager``` e ```driver``` no mesmo código.
+
+### Don't pun
+Evite usar a mesma palavra para 2 própósitos. Supondo que no seu código, existem várias classes com o método ```add``` que serve para concatenar 2 valores. Em uma nova classe existe a necessidade de ter um método que adiciona um novo item em uma coleção. Parece razoável usar `add` como nome, pois já existem outros métodos `add` no código. No entanto, um nome mais semântico seria `insert` ou `append`.
