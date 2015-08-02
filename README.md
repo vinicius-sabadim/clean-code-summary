@@ -5,10 +5,10 @@
 ### Use Intention-Revealing Names
 
 ```java
-	/* Bad */
+	/* Bom */
 	int d; // elapsed time in days
 
-	/* Good */
+	/* Ruim */
 	int elapsedTimeInDays;
 	int daysSinceCreation;
 	int daysSinceModification;
@@ -16,7 +16,7 @@
 ```
 
 ```java
-	/* Bad */
+	/* Bom */
 	public List<int[]> getThem() {
 		List<int[]> list1 = new ArrayList<int[]>();
 		for (int[] x : theList)
@@ -25,7 +25,7 @@
 		return list1;
 	}
 
-	/* Good */
+	/* Ruim */
 	public List<Cell> getFlaggedCells() {
 		List<Cell> flaggedCells = new ArrayList<Cell>();
 		for (Cell cell : gameBoard)
@@ -34,3 +34,19 @@
 		return flaggedCells;
 	}
 ```
+
+### Avoid Disinformation
+* Evite usar variáveis com nomes referindo a uma estrutura de dados, por exemplo, accountList. Prefira accountGroup, bunchOfAccounts ou accounts.
+* Evite l minúsculo e O maiúsculo. Confunde com 1 e 0.
+
+* Evite number-series
+```java
+public static void copyChars(char a1[], char a2[]) {
+	for (int i = 0; i < a1.length; i++) {
+		a2[i] = a1[i];
+	}
+}
+```
+Ficaria bem melhor se a1 fosse source e a2 fosse destination.
+
+* Produto, ProductInfo e ProductData não tem diferença significativa nenhuma.
