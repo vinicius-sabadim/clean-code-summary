@@ -87,3 +87,12 @@ for (int j=0; j < NUMBER_OF_TASKS; j++) {
 sum += realTaskWeeks;
 }
 ```
+
+### Avoid Encodings
+Em vez de chamar uma interface de IShapeFactory e a implementação de ShapeFactory, prefira nomear a implementação. Assim, prefira os nomes ShapeFactory e ShapeFactoryImp.
+
+### Avoid Mental Mapping
+Evite usar nomes que precisam ser pensados como sendo outra coisa. Um caso típico é utilizar variáveis com somente 1 letra. Por exemplo, associar a variável u para armazenar a url sem o host.
+
+### Class Names
+Utilize substantivos em vez de verbo. Use Customer, WikiPage, Account e AddressParser. Não use Manager, Processor, Data ou Info.
