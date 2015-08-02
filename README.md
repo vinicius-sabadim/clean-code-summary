@@ -49,7 +49,7 @@ public static void copyChars(char a1[], char a2[]) {
 ```
 Ficaria bem melhor se a1 fosse source e a2 fosse destination.
 
-* ```Product```, ```ProductInfo``` e ```ProductData``` não tem diferença significativa nenhuma.
+* `Product`, `ProductInfo` e `ProductData` não tem diferença significativa nenhuma.
 
 ### Use Pronunceable Names
 ```java
@@ -89,17 +89,17 @@ sum += realTaskWeeks;
 ```
 
 ### Avoid Encodings
-Em vez de chamar uma interface de ```IShapeFactory``` e a implementação de ```ShapeFactory```, prefira nomear a implementação. Assim, prefira os nomes ```ShapeFactory``` e ```ShapeFactoryImp```.
+Em vez de chamar uma interface de `IShapeFactory` e a implementação de `ShapeFactory`, prefira nomear a implementação. Assim, prefira os nomes `ShapeFactory` e `ShapeFactoryImp`.
 
 ### Avoid Mental Mapping
 Evite usar nomes que precisam ser pensados como sendo outra coisa. Um caso típico é utilizar variáveis com somente 1 letra. Por exemplo, associar a variável u para armazenar a url sem o host.
 
 ### Class Names
-Utilize substantivos e frases substantivas. Use ```Customer```, ```WikiPage```, ```Account``` e ```AddressParser```. Não use ```Manager```, ```Processor```, ```Data``` ou ```Info```.
+Utilize substantivos e frases substantivas. Use `Customer`, `WikiPage`, `Account` e `AddressParser`. Não use `Manager`, `Processor`, `Data` ou `Info`.
 
 ### Method Names
-Utilize verbos e frases verbais. Use ```postPayment```, ```deletePage``` ou ```save```.
-Acesso, mutação e predicado deve ter o valor e os prefixos: ```get```, ```set``` e ```is```.
+Utilize verbos e frases verbais. Use `postPayment`, `deletePage` ou `save`.
+Acesso, mutação e predicado deve ter o valor e os prefixos: `get`, `set` e `is`.
 
 ```java
 string name = employee.getName();
@@ -109,13 +109,86 @@ if (paycheck.isPosted())...
 
 ### Don't Be Cute
 Não utilize termos engraçados ou com dependência cultural.
-Em vez de ```HolyHandGrenade``` use ```DeleteItems```.
+Em vez de `HolyHandGrenade` use `DeleteItems`.
 
 > Escreva o que significa.
 
 ### Pick One Word per Concept
-Utilize a mesma palavra para descrever o mesmo conceito durante o código. Não use ```fetch```, ```retrieve``` e ```get``` com a mesma função em diferentes métodos.
-É confuso ter ```controller```, ```manager``` e ```driver``` no mesmo código.
+Utilize a mesma palavra para descrever o mesmo conceito durante o código. Não use `fetch`, `retrieve` e `get` com a mesma função em diferentes métodos.
+É confuso ter `controller`, `manager` e `driver` no mesmo código.
 
 ### Don't pun
 Evite usar a mesma palavra para 2 própósitos. Supondo que no seu código, existem várias classes com o método ```add``` que serve para concatenar 2 valores. Em uma nova classe existe a necessidade de ter um método que adiciona um novo item em uma coleção. Parece razoável usar `add` como nome, pois já existem outros métodos `add` no código. No entanto, um nome mais semântico seria `insert` ou `append`.
+
+### Use Solution Domain Names
+Quem lê o seu código é um programador. Então vá em frente e use termos de computação, nomes de algoritmos, nomes de padrões, termos matemáticos.
+
+### Use Problem Domain Names
+Utilize nomes que descrevam problemas do domínio quando não existir um termo computacional para descrever.
+
+### Add Meaningful Context
+Existem termos que por si só são explicativas.
+Variáveis como: `firstName`, `lastName`, `street`, `houseNumber`, `city`, `state` e `zipcode`, quando utilizadas juntas remetem ao contexto de endereço. Já o uso separado não é claro o suficiente.
+
+```java
+/* Ruim - variáveis sem contexto claro */
+private void printGuessStatistics(char candidate, int count) {
+	String number;
+	String verb;
+	String pluralModifier;
+	if (count == 0) {
+		number = "no";
+		verb = "are";
+		pluralModifier = "s";
+	} else if (count == 1) {
+		number = "1";
+		verb = "is";
+		pluralModifier = "";
+	} else {
+		number = Integer.toString(count);
+		verb = "are";
+		pluralModifier = "s";
+	}
+	String guessMessage = String.format(
+		"There %s %s %s%s", verb, number, candidate, pluralModifier
+	);
+	print(guessMessage);
+}
+
+/* Bom - variáveis têm um contexto */
+public class GuessStatisticsMessage {
+	private String number;
+	private String verb;
+	private String pluralModifier;
+		public String make(char candidate, int count) {
+		createPluralDependentMessageParts(count);
+		return String.format(
+			"There %s %s %s%s",
+			verb, number, candidate, pluralModifier );
+	}
+	private void createPluralDependentMessageParts(int count) {
+		if (count == 0) {
+			thereAreNoLetters();
+		} else if (count == 1) {
+			thereIsOneLetter();
+		} else {
+			thereAreManyLetters(count);
+		}
+	}
+	private void thereAreManyLetters(int count) {
+		number = Integer.toString(count);
+		verb = "are";
+		pluralModifier = "s";
+	}
+	private void thereIsOneLetter() {
+		number = "1";
+		verb = "is";
+		pluralModifier = "";
+	}
+	private void thereAreNoLetters() {
+		number = "no";
+		verb = "are";
+		pluralModifier = "s";
+	}
+}
+```
