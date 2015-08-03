@@ -210,3 +210,24 @@ Os nomes `accountAddress` e `costumerAddress` são bons nomes para instâncias d
 > Não tenha medo de renomear sempre que for necessário.
 
 ## Functions
+
+### Do One Thing
+* A função deve ter somente 1 level de abstração.
+	* Se tiver mais de 1 level, precisa decompôr em outras funções.
+* Funções que fazem somente uma coisa, dificilmente podem ser divididas em seções.
+
+### One Level of Abstraction per Function
+* Assim que você começar a misturar detalhes com conceitos essencias dentro de uma função, mais e mais detalhes tendem a aparecer dentro dela.
+
+#### Reading Code from Top to Bottom
+* Queremos que o nosso programa seja lido como uma narrativa, então devemos descer um nível de abstração por vez.
+
+```
+To include the setups and teardowns, we include setups, then we include the test page con-
+tent, and then we include the teardowns.
+	To include the setups, we include the suite setup if this is a suite, then we include the
+regular setup.
+	To include the suite setup, we search the parent hierarchy for the “SuiteSetUp” page
+and add an include statement with the path of that page.
+	To search the parent...
+```
